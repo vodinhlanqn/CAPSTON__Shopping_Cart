@@ -27,7 +27,7 @@ function fetchData() {
               <td>${product.name}</td>
               <td>${product.price}</td>
               <td>
-                  <img width="50px" src="./../assets/img/${product.screen}" />
+                  <img width="50px" src="./../../assets/img/${product.screen}" />
               </td>
               <td>${product.backCamera}</td>
               <td>
