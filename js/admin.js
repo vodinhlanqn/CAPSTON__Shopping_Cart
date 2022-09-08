@@ -26,10 +26,15 @@ function fetchData() {
               <td>${index + 1}</td>
               <td>${product.name}</td>
               <td>${product.price}</td>
+             
               <td>
-                  <img width="50px" src="./../../assets/img/${product.screen}" />
+                  <img width="50px" src="./../../img/ ${product.img}" />
               </td>
-              <td>${product.backCamera}</td>
+              <td>${product.frontCamera}</td>
+              <td>${product.desc}</td>
+              <td>${product.inventory}</td>
+              <td>${product.rating}</td>
+              
               <td>
                 <button class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="editProduct(${
                   product.id
@@ -110,7 +115,7 @@ function addProduct() {
         //show thông ra các thẻ input
         getEle("TenSP").value = result.data.name;
         getEle("GiaSP").value = result.data.price;
-        getEle("HinhSP").value = result.data.screen;
+        getEle("HinhSP").value = result.data.img;
         getEle("MoTa").value = result.data.backCamera;
       })
       .catch(function (error) {
