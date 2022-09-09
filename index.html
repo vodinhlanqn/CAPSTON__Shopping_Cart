@@ -8,7 +8,14 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
-
+		<!-- FONT AWESOME -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+			integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<!-- Bootstrap CSS -->
 		<link
 			rel="stylesheet"
@@ -16,8 +23,123 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous"
 		/>
+		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
+		<div class="container">
+			<h1 class="text-center title-page">Mua Hàng Online</h1>
+			<div class="text-white">
+				<a
+					href="./admin.html"
+					style="font-size: 25px; text-decoration: none; color: white"
+				>
+					Trang Quản Lý Sản Phẩm</a
+				>
+			</div>
+			<!-- ICON Giỏ hàng -->
+			<!-- <i
+				id=""
+				class="fa-solid fa-cart-shopping mb-5"
+				data-toggle="modal"
+				data-target="#myModal"
+				style="font-size: 30px; cursor: pointer; color: white"
+			>
+			</i> -->
+			<div class="row align-item-center">
+				<div class="col-10">
+					<div class="row">
+						<div class="col-md-8 text-right">
+							<label for="" class="text-white fs-4">Sắp sếp</label>
+							<select name="" id="sort" onchange="sortProduct()">
+								<option value="">---Sắp sếp---</option>
+								<option value="0">A-Z</option>
+								<option value="1">Z-A</option>
+							</select>
+						</div>
+						<div class="col-md-4 text-left">
+							<label for="" class="text-white">Lọc</label>
+							<select name="" id="filterProduct" onchange="searchProduct()">
+								<option value="">--Lọc--</option>
+								<option value="iphone">Apple</option>
+								<option value="Samsung">SamSung</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="d-flex justify-content-end">
+						<span class="header__cart-title">Giỏ hàng</span>
+						<i
+							class="header__cart-icon fa-solid fa-cart-shopping"
+							data-toggle="modal"
+							data-target="#myModal"
+						></i>
+
+						<span class="header__cart-notice" id="countQuantity">0</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Show Product -->
+			<div id="divbody" class="row"></div>
+		</div>
+
+		<!-- The Modal -->
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog mw-100 w-75">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">GIỎ HÀNG</h4>
+						<button type="button" class="close" data-dismiss="modal">
+							&times;
+						</button>
+					</div>
+					<!-- Modal body -->
+					<div class="modal-body">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Hình Ảnh</th>
+									<th>Sản Phẩm</th>
+									<th>Giá</th>
+									<th>Số Lượng</th>
+									<th>Tổng Cộng</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="tblCart"></tbody>
+							<tfoot>
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td style="font-size: 24px" class="font-weight-bold">
+										Tổng Tiền
+									</td>
+									<td
+										style="font-size: 24px"
+										class="font-weight-bold"
+										id="totalPrice"
+									></td>
+									<td>
+										<button
+											style="font-size: 20px"
+											class="btn btn-success"
+											onclick="purchaseCart()"
+										>
+											Thanh Toán
+										</button>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<!-- Modal footer -->
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script
