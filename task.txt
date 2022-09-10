@@ -1,0 +1,17 @@
+BÀI TẬP CAPSTON - QUẢN LÝ SẢN PHẨM
+
+LỚP BOOTCAMP 34 - Nhóm 12
+
+    1. Võ Đình Lân
+    2. Võ Lê Quốc Bảo
+ 
+=====================================================
+BẢNG PHÂN CHIA CÔNG VIỆC
+
+1. Trang Hiển thị Sản phẩm (trang chủ)
+
+    Võ Đình Lân
+
+2. Trang quản lý sản phẩm (Admin)
+
+    Võ Lê Quốc Bảo
