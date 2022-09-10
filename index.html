@@ -60,6 +60,7 @@
 							<label for="" class="text-white">Lọc</label>
 							<select name="" id="filterProduct" onchange="searchProduct()">
 								<option value="">--Lọc--</option>
+								<option value="all">Tất cả</option>
 								<option value="iphone">Apple</option>
 								<option value="Samsung">SamSung</option>
 							</select>
@@ -75,7 +76,13 @@
 							data-target="#myModal"
 						></i>
 
-						<span class="header__cart-notice" id="countQuantity">0</span>
+						<span
+							class="header__cart-notice"
+							id="countQuantity"
+							data-toggle="modal"
+							data-target="#myModal"
+							>0</span
+						>
 					</div>
 				</div>
 			</div>

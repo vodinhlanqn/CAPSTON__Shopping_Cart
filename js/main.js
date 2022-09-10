@@ -13,7 +13,9 @@ const fetchList = function () {
     })
         .then(function (res) {
             productList.arrProduct = res.data;
-            renderProd(productList.arrProduct);
+            // renderProd(productList.arrProduct);
+            renderProd();
+            // getLocalStorage();
         })
         .catch(function (err) {
         });
@@ -108,8 +110,6 @@ const addToCart = function (id) {
             quantity: 1,
         };
         cartProduct.push(cartItem);
-
-        // renderCart(cartProduct);
     }
     renderCart(cartProduct);
 };
@@ -187,6 +187,9 @@ const compareDecrement = function (a, b) {
 const searchProduct = function () {
     var search = [];
     var value = document.getElementById("filterProduct").value;
+    if (value == 'all') {
+        search = renderProd();
+    }
     for (var i = 0; i < productList.arrProduct.length; i++) {
         if (value.toUpperCase() === productList.arrProduct[i].type.toUpperCase()) {
             search.push(productList.arrProduct[i]);
@@ -228,7 +231,7 @@ const deleteCartItem = function (id) {
 
 
 
-
+getLocalStorage();
 // Lưu dữ liệu xuống LocalStorge
 function setLocalStorage() {
     // convert json ==> string
@@ -243,16 +246,21 @@ function getLocalStorage() {
     if (localStorage.getItem('ListCartProduct')) {
         var dataString = localStorage.getItem('ListCartProduct');
         // convert string ==> JSON
-        var cartProduct = JSON.parse(dataString);
-        // Hiển thị danh sách ra ngoài giao diện
+        cartProduct = JSON.parse(dataString);
+        // Hiển thị danh sách giỏ hàng ra ngoài giao diện
         renderCart(cartProduct);
-
+        countQuantity();
     }
 }
 
 const purchaseCart = function () {
     cartProduct = [];
-    localStorage.clear("ListCartProduct");
-    renderCart(cartProduct);
-    alert("Bạn đã thanh toán thành công");
+    var dataString = JSON.parse(localStorage.getItem('ListCartProduct'));
+    if (dataString == "") {
+        alert("Chưa có sản phẩm trong giỏ hàng");
+    } else {
+        localStorage.clear("ListCartProduct");
+        renderCart(cartProduct);
+        alert("Bạn đã thanh toán thành công");
+    }
 };

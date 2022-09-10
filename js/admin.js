@@ -26,7 +26,6 @@ function renderHTML(data) {
               <td>${index + 1}</td>
               <td>${product.name}</td>
               <td>${product.price}</td>
-             
               <td>
                   <img width="50px" src="${product.img}" />
               </td>
@@ -67,10 +66,10 @@ function deleteProduct(id) {
 
 getEle("btnThemSP").addEventListener("click", function () {
   //Sửa Title
-  document.getElementsByClassName("modal-title")[0].innerHTML = "Thêm SP";
+  document.getElementsByClassName("modal-title")[0].innerHTML = "Thêm Sản Phẩm";
 
   //Tạo nút "Add"
-  var btnAdd = `<button class="btn btn-success" onclick="addProduct()">Add</button>`;
+  var btnAdd = `<button class="btn btn-success" onclick="addProduct()">Thêm sản phẩm</button>`;
   document.getElementsByClassName("modal-footer")[0].innerHTML = btnAdd;
 });
 
@@ -81,10 +80,18 @@ getEle("btnThemSP").addEventListener("click", function () {
 function addProduct() {
   var name = getEle("TenSP").value;
   var price = getEle("GiaSP").value;
-  var screen = getEle("HinhSP").value;
-  var backCamera = getEle("MoTa").value;
+  var screen = getEle("manHinhSanPham").value;
+  var backCamera = getEle("backCamera").value;
+  var frontCamera = getEle("frontCamera").value;
+  var img = getEle("HinhSP").value;
+  var desc = getEle("MoTa").value;
+  var type = getEle("loaiSanPham").value;
+  var inventory = getEle("soLuongHang").value;
+  var rating = getEle("danhGia").value;
 
-  var product = new ProductList("", name, price, screen, backCamera);
+
+  var product = new ProductList("", name, price, screen, backCamera, frontCamera, img, desc, type, inventory, rating);
+
 
   service
     .addProductApi(product)
@@ -113,8 +120,14 @@ function editProduct(id) {
       //show thông ra các thẻ input
       getEle("TenSP").value = result.data.name;
       getEle("GiaSP").value = result.data.price;
+      getEle("manHinhSanPham").value = result.data.screen;
+      getEle("backCamera").value = result.data.backCamera;
+      getEle("frontCamera").value = result.data.frontCamera
       getEle("HinhSP").value = result.data.img;
-      getEle("MoTa").value = result.data.backCamera;
+      getEle("MoTa").value = result.data.desc;
+      getEle("loaiSanPham").value = result.data.type;
+      getEle("soLuongHang").value = result.data.inventory;
+      getEle("danhGia").value = result.data.rating;
     })
     .catch(function (error) {
       console.log(error);
@@ -127,10 +140,17 @@ function editProduct(id) {
 function updateProduct(id) {
   var name = getEle("TenSP").value;
   var price = getEle("GiaSP").value;
-  var screen = getEle("HinhSP").value;
-  var backCamera = getEle("MoTa").value;
+  var screen = getEle("manHinhSanPham").value;
+  var backCamera = getEle("backCamera").value;
+  var frontCamera = getEle("frontCamera").value;
+  var img = getEle("HinhSP").value;
+  var desc = getEle("MoTa").value;
+  var type = getEle("loaiSanPham").value;
+  var inventory = getEle("soLuongHang").value;
+  var rating = getEle("danhGia").value;
 
-  var product = new ProductList(id, name, price, screen, backCamera);
+  var product = new ProductList(id, name, price, screen, backCamera, frontCamera, img, desc, type, inventory, rating);
+  ;
 
   service
     .updateProductApi(product)

@@ -60,6 +60,11 @@
 			</nav>
 
 			<header class="display-4 my-4">Quản lý Sản Phẩm - BT Capston</header>
+			<div class="row">
+				<div class="col-12 text-right" style="font-size: 20px">
+					<a href="./index.html">Trang chủ</a>
+				</div>
+			</div>
 			<!-- Phan tab menu -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li class="nav-item">
@@ -114,7 +119,10 @@
 					<div class="tblSanPham" id="tblSanPham">
 						<!-- BEGIN TABLE SẢN PHẨM -->
 						<table class="table table-bordered">
-							<thead>
+							<thead
+								class="bg-warning text-white align-content-center"
+								style="font-size: 13px"
+							>
 								<th>STT</th>
 								<th>Tên Sản Phẩm</th>
 								<th>Giá</th>
@@ -138,7 +146,7 @@
 
 			<!-- The Modal -->
 			<div class="modal fade" id="myModal">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-xl">
 					<div class="modal-content">
 						<!-- Modal Header -->
 						<div class="modal-header">
@@ -149,39 +157,94 @@
 						</div>
 						<!-- Modal body -->
 						<div class="modal-body">
-							<div class="form-group">
-								<label>Tên Sản Phẩm</label>
-								<input
-									id="TenSP"
-									class="form-control"
-									placeholder="Nhập vào tên sản phẩm"
-								/>
-							</div>
-							<div class="form-group">
-								<label>Giá</label>
-								<input
-									id="GiaSP"
-									class="form-control"
-									placeholder="Nhập vào giá"
-								/>
-							</div>
-							<div class="form-group">
-								<label>Hình Ảnh</label>
-								<input
-									id="HinhSP"
-									class="form-control"
-									placeholder="Nhập vào hình sản phẩm"
-								/>
-							</div>
-							<div class="form-group">
-								<label for="">Mô tả: </label>
-								<textarea id="MoTa" class="form-control"></textarea>
+							<div class="row">
+								<div class="col-6">
+									<div class="form-group">
+										<label>Tên Sản Phẩm</label>
+										<input
+											id="TenSP"
+											class="form-control"
+											placeholder="Nhập vào tên sản phẩm"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Loại sản phẩm</label>
+										<input
+											id="loaiSanPham"
+											class="form-control"
+											placeholder="Loại sản phẩm"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Giá</label>
+										<input
+											id="GiaSP"
+											class="form-control"
+											placeholder="Nhập vào giá"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Màn hình</label>
+										<input
+											id="manHinhSanPham"
+											class="form-control"
+											placeholder="Nhập vào màn hình sản phẩm"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Camera Trước</label>
+										<input
+											id="frontCamera"
+											class="form-control"
+											placeholder="Nhập thông số camera trước"
+										/>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<label>Camera Sau</label>
+										<input
+											id="backCamera"
+											class="form-control"
+											placeholder="Nhập thông số camera sau"
+										/>
+									</div>
+									<div class="form-group">
+										<label>Hình Ảnh</label>
+										<input
+											id="HinhSP"
+											class="form-control"
+											placeholder="Nhập link hình sản phẩm"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="">Mô tả: </label>
+										<textarea id="MoTa" class="form-control"></textarea>
+									</div>
+
+									<div class="form-group">
+										<label for="">Số lượng hàng </label>
+										<input
+											id="soLuongHang"
+											class="form-control"
+											placeholder="Nhập số lượng hàng"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="">Đánh giá </label>
+										<input
+											id="danhGia"
+											class="form-control"
+											placeholder="Nhập đánh giá"
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 						<!-- Modal footer -->
 						<div class="modal-footer">
 							<button onclick="addProducts()" class="btn btn-success">
-								Thêm sản phẩm
+								Add
 							</button>
 						</div>
 					</div>
