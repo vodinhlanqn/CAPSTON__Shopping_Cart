@@ -104,6 +104,8 @@ function addProduct() {
     .catch(function (error) {
       console.log(error);
     });
+  // Sau khi thêm thông tin sản phẩm, Reset lại tất cả Input
+  getEle('formNhapSanPham').reset();
 }
 /**
  * Edit Product
